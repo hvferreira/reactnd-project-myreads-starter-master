@@ -34,7 +34,7 @@ class ListBooks extends React.Component {
                                                             : "https://shop.googlemerchandisestore.com/store/20160512512/assets/items/small/GGOEGOLC014299-2.jpg"
                                                             })`
                                                     }}><div className="book-shelf-changer">
-                                                            <select onChange={event => this.props.shiftBook(book, event.target.value)}  >
+                                                            <select onChange={event => this.props.shiftBook(book, event.target.value)} value={book.shelf}  >
                                                                 <option value="none">None</option>
                                                                 <option value="move" disabled>Move to...</option>
                                                                 <option value="currentlyReading">Currently Reading</option>
@@ -67,7 +67,7 @@ class ListBooks extends React.Component {
                                                             : "https://shop.googlemerchandisestore.com/store/20160512512/assets/items/small/GGOEGOLC014299-2.jpg"
                                                             })`
                                                     }}><div className="book-shelf-changer">
-                                                            <select onChange={event => this.props.shiftBook(book, event.target.value)}  >
+                                                            <select onChange={event => this.props.shiftBook(book, event.target.value)} value={book.shelf}  >
                                                                 <option value="none">None</option>
                                                                 <option value="move" disabled>Move to...</option>
                                                                 <option value="currentlyReading">Currently Reading</option>
@@ -100,7 +100,7 @@ class ListBooks extends React.Component {
                                                             : "https://shop.googlemerchandisestore.com/store/20160512512/assets/items/small/GGOEGOLC014299-2.jpg"
                                                             })`
                                                     }}><div className="book-shelf-changer">
-                                                            <select onChange={event => this.props.shiftBook(book, event.target.value)}  >
+                                                            <select onChange={event => this.props.shiftBook(book, event.target.value)} value={book.shelf}>
                                                                 <option value="none">None</option>
                                                                 <option value="move" disabled>Move to...</option>
                                                                 <option value="currentlyReading">Currently Reading</option>

@@ -12,8 +12,7 @@ class Search extends React.Component {
 
     state = {
         query: '',
-        searchBooks: [],
-        shelf: 'none'
+        searchBooks: []
     }
 
     updateQuery = (query) => {
@@ -21,6 +20,7 @@ class Search extends React.Component {
             query: query,
         }))
         this.searchBook(query)
+
     }
 
     clearQuery = () => {
@@ -41,8 +41,14 @@ class Search extends React.Component {
 
     updateShelf = (book, event) => {
         this.props.shiftBook(book, event);
+
     }
 
+    shelf(bookSelect) {
+        const book = this.props.books.find(book => bookSelect.id === book.id);
+        console.log(book)
+        return (book !== undefined) ? book.shelf : 'none';
+    }
 
     render() {
         const { query, searchBooks } = this.state
@@ -52,7 +58,6 @@ class Search extends React.Component {
             : searchBooks.filter((b) => (
                 b.title.toLowerCase().includes(query.toLowerCase())
             ))
-
 
         return (
             <div className="search-books" >
@@ -69,6 +74,7 @@ class Search extends React.Component {
                     <ol className="books-grid">
                         {showingBooks.map((book) => (
                             <li key={book.id} className='book-authors'>
+
                                 <div className="book">
                                     <div className="book-top">
                                         <div className="book-cover" style={{
@@ -78,7 +84,8 @@ class Search extends React.Component {
                                                 })`
                                         }}></div>
                                         <div className="book-shelf-changer">
-                                            <select onChange={event => this.updateShelf(book, event.target.value)} value={this.state.shelf} >
+
+                                            <select onChange={event => this.updateShelf(book, event.target.value)} value={this.shelf(book)} >
                                                 <option value="none">None</option>
                                                 <option value="move" disabled>Move to...</option>
                                                 <option value="currentlyReading">Currently Reading</option>
